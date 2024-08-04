@@ -55,6 +55,21 @@ export const getUser = async (userId: string) => {
   }
 };
 
+// GET PATIENT
+export const getPatient = async (userId: string) => {
+  try {
+    const patients = await databases.listDocuments(
+      DATABASE_ID!,
+      PATIENT_COLLECTION_ID!,
+      [Query.equal('userId', userId)]
+    );
+
+    return parseStringify(patients.documents[0]);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // REGISTER PATIENT
 export const registerPatient = async ({
   identificationDocument,
@@ -73,14 +88,6 @@ export const registerPatient = async ({
 
       file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
     }
-    console.log("databases: ",databases);
-    console.log("DATABASE_ID: ",DATABASE_ID);
-    console.log("PATIENT_COLLECTION_ID: ",PATIENT_COLLECTION_ID);
-    console.log("ID: ",ID.unique());
-    console.log("file: ",file);
-    console.log("ENDPOINT: ",ENDPOINT);
-    console.log("BUCKET_ID: ",BUCKET_ID);
-    console.log("PROJECT_ID: ",PROJECT_ID);
 
     // Create new patient document -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#createDocument
     const newPatient = await databases.createDocument(
@@ -95,7 +102,7 @@ export const registerPatient = async ({
         ...patient,
       }
     );
-    console.log("newPatient: ",newPatient);
+    
     return parseStringify(newPatient);
   } catch (error) {
     console.error("An error occurred while creating a new patient:", error);
