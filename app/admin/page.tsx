@@ -5,111 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {columns, Payment} from '@/components/table/columns'
 
-async function getData(): Promise<Payment[]> {
-    // Fetch data from your API here.
-    return [
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-      {
-        id: "728ed52f",
-        amount: 100,
-        status: "pending",
-        email: "m@example.com",
-      },
-    ]
-  }
 
 const Admin = async () => {
-    const data = await getData()
-
     const appointments = await getRecentAppointmentList();
 
   return (
@@ -154,8 +51,7 @@ const Admin = async () => {
                 />
             </section>
 
-            {/* <DataTable columns={columns} data={appointments.documents} /> */}
-            <DataTable columns={columns} data={data} />
+            <DataTable columns={columns} data={appointments.documents} />
         </main>
     </div>
   )
